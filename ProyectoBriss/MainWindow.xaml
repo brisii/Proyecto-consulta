@@ -1,0 +1,54 @@
+﻿<Window x:Class="ProyectoBriss.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="My App" Height="450" Width="1200">
+    <Grid OpacityMask="#FFED77DE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="BtnAgregar" Content="Agregar" Margin="5" Click="BtnAgregar_Click" Background="#FFA0E4D9" />
+            <Button x:Name="BtnActualizar" Content="Actualizar" Margin="5" Click="BtnActualizar_Click" Background="#FF87C5DA" />
+            <Button x:Name="BtnEliminar" Content="Eliminar" Margin="5" Click="BtnEliminar_Click" Background="#FF6EDCCA" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
+            <TextBlock Text="ID:" VerticalAlignment="Center" Margin="5" x:Name="TxtID">
+                <TextBlock.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF6FE677"/>
+                        <GradientStop Color="#FF61ED84" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Background>
+                <TextBlock.OpacityMask>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.OpacityMask>
+            </TextBlock>
+            <TextBox Width="200" Margin="5" x:Name="TxtIDValue" OpacityMask="#FFE993F3" Background="#FFADF3A3" />
+            <TextBlock Text="Nombre:" VerticalAlignment="Center" Margin="5" Background="#FF6FE677" />
+            <TextBox Width="200" Margin="5" x:Name="TxtNombre" Background="#FFBAF7B8" />
+            <TextBlock Text="Edad:" VerticalAlignment="Center" Margin="5" Foreground="Black" Background="#FF96D897" />
+            <TextBox Width="200" Margin="5" x:Name="TxtEdad" Background="#FF86ECB1" />
+            <TextBlock Text="Teléfono:" VerticalAlignment="Center" Margin="5" Background="#FF87ED88" />
+            <TextBox Width="200" Margin="5" x:Name="TxtTelefono" Background="#FF86ECB1" />
+            <TextBlock Text="Consulta:" VerticalAlignment="Center" Margin="5" Background="#FFA6F385" />
+            <TextBox Width="200" Margin="5" x:Name="TxtConsulta" Background="#FFB1F1D5" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" Margin="5" AutoGenerateColumns="False" x:Name="PersonasDataGrid" SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="PersonasDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Edad" Binding="{Binding Edad}" />
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
+                <DataGridTextColumn Header="Consulta" Binding="{Binding Consulta}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
